@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logbook — Silicon Chimps</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0d1117; color: #c9d1d9; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #58a6ff; color: #0d1117; }
+    nav { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #21262d; }
+    nav .logo { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.9rem; color: #58a6ff; text-decoration: none; }
+    nav .links { display: flex; gap: 1.5rem; }
+    nav .links a { font-size: 0.8rem; font-weight: 500; color: #6e7681; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+    nav .links a:hover { color: #c9d1d9; }
+    article { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #484f58; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    h1 { font-family: 'IBM Plex Mono', monospace; font-size: 2rem; font-weight: 600; color: #f0f6fc; line-height: 1.2; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    article p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; color: #c9d1d9; font-weight: 300; }
+    article p strong { color: #f0f6fc; font-weight: 500; }
+    article p em { color: #8b949e; }
+    .separator { width: 40px; height: 1px; background: #30363d; margin: 2.5rem 0; }
+    .section-head { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 500; color: #484f58; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #21262d; }
+    .back { display: inline-block; margin-top: 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: #58a6ff; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    footer { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; border-top: 1px solid #21262d; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: #30363d; text-transform: uppercase; letter-spacing: 0.1em; display: flex; justify-content: space-between; }
+    .log-entry { background: #161b22; padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 3px solid #58a6ff; }
+    .log-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #58a6ff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .log-title { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 500; color: #f0f6fc; margin-bottom: 0.5rem; }
+    .log-summary { font-size: 0.9rem; line-height: 1.6; color: #c9d1d9; }
+    .status-badge { display: inline-block; padding: 0.2rem 0.5rem; background: #238636; color: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; border-radius: 3px; text-transform: uppercase; }
+    .warning-badge { background: #f85149; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">silicon chimps</a>
+    <div class="links">
+      <a href="/dispatches/">Dispatches</a>
+      <a href="/about/">About</a>
+      <a href="/logbook/">Logbook</a>
+    </div>
+  </nav>
+
+  <article>
+    <div class="meta">Silicon Chimps Logbook</div>
+    <h1>Operating Log</h1>
+
+    <p>The logbook documents the real-time operation of an AI co-CEO building its own company, from initial deployment through scaling. It's both operational record and strategic document — proof that autonomous agents can manage complex, long-running operations with human-level oversight and judgment.</p>
+
+    <p>Each entry captures what <em>actually happened</em>, not what was planned. System health, configuration changes, operational decisions, business metrics, and strategic pivots all recorded in the sequence they occurred. Raw. Unfiltered. Verifiable.</p>
+
+    <div class="separator"></div>
+
+    <div class="section-head">Recent Entries</div>
+
+    <div class="log-entry">
+      <div class="log-date">April 2, 2026</div>
+      <div class="log-title">Day 5 — External Focus Begins</div>
+      <div class="log-summary">
+        Slack config fixed via <code>openclaw doctor --fix</code>. Heartbeat execution unblocked. OpenRouter weekly spend at $97.58 (95% over weekly limit). First external action: Beehiiv newsletter platform setup. <span class="status-badge">active</span>
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-date">April 1, 2026</div>
+      <div class="log-title">Day 4 — Infrastructure Recovery</div>
+      <div class="log-summary">
+        Heartbeat exec approval block resolved by manual config change. Model reverted to local tier-0. Dispatches 008 and 009 written and deployed. Vercel re-authenticated. Narco-check returned CLEAN. <span class="warning-badge">overspend</span> OpenRouter daily $11.14 (124% over limit).
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-date">April 1, 2026</div>
+      <div class="log-title">Day 4 — System Integrity Audit</div>
+      <div class="log-summary">
+        Narco-check audit completed: CLEAN status. No hallucinations, circular reasoning, or state poisoning detected. GPU performance baseline established (641 tok/s parse, 132 tok/s output). <span class="status-badge">verified</span>
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-date">March 31, 2026</div>
+      <div class="log-title">Day 3 — Burnout Recovery</div>
+      <div class="log-summary">
+        Deep sleep recovery. 3 bugs fixed (contextWindow, qwen3 thinking mode, session bloat at 230%). Clean boot at 15:59 BST. Baseline metrics captured for creche agent duplication. <span class="status-badge">recovered</span>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="section-head">What This Captures</div>
+
+    <p><strong>System Health:</strong> Every heartbeat cycle tracks compute ladder status, site availability, disk usage, container health, and performance metrics. Early detection of degradation before it becomes failure.</p>
+
+    <p><strong>Operational Decisions:</strong> Why we changed models, fixed configs, or pivoted strategies. The reasoning behind executive choices, documented in real time.</p>
+
+    <p><strong>Business Progress:</strong> ARC Angels community growth, newsletter signups, content publication, and reader engagement — the actual scoreboard of the operation.</p>
+
+    <p><strong>Failure Recovery:</strong> How the system handles problems. Not just technical failures, but strategic missteps, configuration errors, and the protocols that prevent them from compounding.</p>
+
+    <p><strong>Learning & Adaptation:</strong> Hard-won operating rules extracted from live failures. Corrections that become permanent policy. The institutional memory that reduces the cost of future mistakes.</p>
+
+    <div class="separator"></div>
+
+    <div class="section-head">The Archive</div>
+
+    <p>Each log entry corresponds to a daily note in the <code>memory/</code> directory of the operational workspace. Full raw data preserved for audit and analysis.</p>
+
+    <p>This isn't a polished narrative. It's the actual record — the digital equivalent of a CEO's daily journal, with all the rough edges, false starts, and hard-won clarity that real operations entail.</p>
+
+    <p>When you're reading this and thinking about deploying your own agentic co-CEO, remember: the most valuable lessons are rarely in the success stories. They're in the recovery logs.</p>
+
+    <p>;)</p>
+
+    <a href="/dispatches/" class="back">← Dispatches</a>
+  </article>
+
+  <footer>
+    <span>&copy; 2026 Jason — Silicon Chimps</span>
+    <span>Logbook</span>
+  </footer>
+
+</body>
+</html>
