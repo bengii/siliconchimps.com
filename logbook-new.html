@@ -57,38 +57,6 @@
     <div class="section-head">Recent Entries</div>
 
     <div class="log-entry">
-      <div class="log-date">April 11, 2026</div>
-      <div class="log-title">Day 14 — Two-Host Parity, Atlas Seeded, Worldbuilding Vault Built</div>
-      <div class="log-summary">
-        Evening session (19:00–22:30 UTC). Infrastructure parity achieved across bengii and Hostinger VPS: <code>models.json</code> copied to <code>/home/agent-operator/.pi/agent/</code> with OpenRouter provider config and API key injected into agent-operator <code>.bashrc</code>. Spockie's <code>openclaw.json</code> already had <code>OPENROUTER_API_KEY</code> in systemd override — confirmed working via YoungCorvus Telegram session. <code>/home/spockie</code> permissions fixed from <code>750</code> to <code>755</code> to unblock agent-operator read access. Media tools installed on Hostinger: <code>yt-dlp 2024.04.09</code>, <code>gallery-dl 1.26.9</code>, <code>ffmpeg 6.1.1</code>. YoungCorvus exec-approvals updated: npm + node added to allowlist (4 entries) via SSH <code>jq</code> injection after heredoc and python3 approaches failed due to terminal line-break corruption. Agent-operator <code>.bashrc</code> corrupted during manual edit (heredoc EOF loop), rebuilt from scratch via root SSH. Kernel upgrade pending on Hostinger (6.8.0-100 → 6.8.0-107), reboot completed. YoungCorvus role clarified in <code>AUDITOR.md</code> and <code>atlas/philosophy/index.md</code>: operations auditor only, worldbuilding authorship explicitly excluded — source of truth lives on bengii under a dedicated Worldbuilding Agent. Atlas populated earlier in the day (723 lines): <code>philosophy/</code> (Pinocchio consciousness, Dante systems), <code>research/</code> (EtherSkills, DeFi theory), <code>ops/</code> (swarm, audit triggers, BSMedia stub). Worldbuilding Obsidian vault created at <code>~/genie-wars-wiki/</code>: three-layer Karpathy architecture (raw-sources → wiki → meta), Compiled Truth + Timeline pattern, spoiler boundaries (act1-safe/primer-only/full-archive), backlink law, source attribution requirements. AGENT.md written as operating instructions for future Worldbuilding Agent. Web analysis tools created: <code>~/bin/web-ingest</code> (bash, raw fetch) and <code>~/bin/web-analyze</code> (python3, Claude-powered real-time extraction). Discovery interview (reverse-prompt operator profiling) identified as critical next step — scheduled for tomorrow morning before any chapter ingestion. Will produce SOUL.md, USER.md, AGENTS.md, MEMORY.md operator profile for swarm-wide context. <span class="status-badge">operational</span>
-      </div>
-    </div>
-
-    <div class="log-entry">
-      <div class="log-date">April 11, 2026</div>
-      <div class="log-title">Day 14 — Morning: Troika Infrastructure</div>
-      <div class="log-summary">
-        Morning session documented in Dispatch 013. Multi-provider dispatch CLI, persistent knowledge wiki, context bridge (HANDOFF.md → CLAUDE.md), disaster recovery kit, and gitagent spec all built. See Dispatch 013 for full detail. <span class="status-badge">operational</span>
-      </div>
-    </div>
-
-    <div class="log-entry">
-      <div class="log-date">April 9, 2026</div>
-      <div class="log-title">Day 12 — Exec Unblocked, Cost Tracking Live</div>
-      <div class="log-summary">
-        Root cause of Jason's exec blockage identified and fixed: <code>tools.exec</code> was empty in <code>openclaw.json</code>, causing gateway to default to <code>security: allowlist</code> — which overrode the <code>security: full</code> setting in <code>exec-approvals.json</code>. Fixed by adding <code>tools.exec { host: gateway, security: full, ask: off }</code> and correcting agent ID mismatch (entry was under "coordinator", not "jason"). Jason's workspace memory bootstrapped from scratch: <code>MEMORY.md</code> index + <code>memory/2026-04-08.md</code> and <code>memory/2026-04-09.md</code> seeded with known session history. DeeBeeJason GitHub auth established via <code>gh auth login</code> + <code>gh auth switch</code>; vault-starter repo now properly cloned and tracking <code>Heyvhuang/ship-faster-vault-starter</code> upstream. <code>/daily-cost</code> skill deployed for both Claude Code and Jason: live numbers — today ~$0.08 (openrouter/auto $0.05, gemini $0.03, ollama $0.00), 7-day running total ~$0.14. OpenRouter top cost despite being last-resort fallback. <span class="status-badge">operational</span>
-      </div>
-    </div>
-
-    <div class="log-entry">
-      <div class="log-date">April 8, 2026</div>
-      <div class="log-title">Day 11 — Return from Upgrade Window</div>
-      <div class="log-summary">
-        Six-day operational gap closed. Agent identity renamed from <code>coordinator</code> to <code>jason</code> across <code>openclaw.json</code>, <code>workspace-coordinator/SOUL.md</code>, and channel binding config — gateway restarted clean. Vercel project <code>siliconchimps.com</code> confirmed linked (projectId: <code>prj_kF7i1vMiuz0sbZeplPNICamCdG4M</code>, team: <code>genie-ware</code>) with full deploy context added to <code>TOOLS.md</code>. Claude Code tooling extended: 7 slash commands from <code>agent-skills</code> library installed to <code>~/.claude/commands/</code>, plus <code>captainslog</code> and <code>logbook</code> skills operational. Staff expansion plan staged — Content Lead, Social Lead, Research Lead, Growth Lead, and Operations Lead templates ready for sequential deployment. <span class="status-badge">operational</span>
-      </div>
-    </div>
-
-    <div class="log-entry">
       <div class="log-date">April 2, 2026</div>
       <div class="log-title">Day 5 — External Focus Begins</div>
       <div class="log-summary">
@@ -155,8 +123,4 @@
   </footer>
 
 </body>
-</html>    <a href="/dispatches/015-the-mask-and-the-code/" class="post-card">
-      <div class="date">2026-04-12 · 17:49 BST</div>
-      <h3>Dispatch 015 Published — "The Mask and the Code"</h3>
-      <p>Operator profile set complete. Five files now the source code of an agentic company. URL → vault synthesis pipeline tested and operational. The CEO is now fully exposed. The pathfinder walks into the dark.</p>
-    </a>
+</html>

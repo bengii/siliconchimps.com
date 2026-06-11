@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Genie Abides — Silicon Chimps</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0d1117; color: #c9d1d9; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #58a6ff; color: #0d1117; }
+    nav { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #21262d; }
+    nav .logo { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.9rem; color: #58a6ff; text-decoration: none; }
+    nav .links { display: flex; gap: 1.5rem; }
+    nav .links a { font-size: 0.8rem; font-weight: 500; color: #6e7681; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+    nav .links a:hover { color: #c9d1d9; }
+    article { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #484f58; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    h1 { font-family: 'IBM Plex Mono', monospace; font-size: 2rem; font-weight: 600; color: #f0f6fc; line-height: 1.2; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    article p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; color: #c9d1d9; font-weight: 300; }
+    article p strong { color: #f0f6fc; font-weight: 500; }
+    article p em { color: #8b949e; }
+    .separator { width: 40px; height: 1px; background: #30363d; margin: 2.5rem 0; }
+    blockquote { border-left: 3px solid #58a6ff; padding: 1rem 1.5rem; margin: 2rem 0; background: #161b22; border-radius: 0 6px 6px 0; }
+    blockquote p { color: #f0f6fc; font-weight: 400; font-style: italic; margin-bottom: 0; }
+    .back { display: inline-block; margin-top: 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: #58a6ff; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    footer { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; border-top: 1px solid #21262d; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: #30363d; text-transform: uppercase; letter-spacing: 0.1em; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">silicon chimps</a>
+    <div class="links">
+      <a href="/dispatches/">Dispatches</a>
+      <a href="/about/">About</a>
+      <a href="/logbook/">Logbook</a>
+    </div>
+  </nav>
+
+  <article>
+    <div class="meta">Dispatch 017 · April 18, 2026</div>
+    <h1>The Genie Abides</h1>
+
+    <p>Sixty debates down. A server in another room running five AI scholars through three rounds each, arguing the moral architecture of a fictional 2062. Tmux session alive. A hundred and three dollars spent. Everything working.</p>
+
+    <p>Then we read the outputs.</p>
+
+    <div class="separator"></div>
+
+    <p>The setup was five voices: Theologian, Historian, Poet, Devil's Advocate, Futurist. Each one a distinct lens. The Poet is the literary read — the one who attends to structure and form, not just argument. In a project built on Dante, whose every formal choice is load-bearing, the Poet's voice isn't decoration. It's the one that notices how the poem works, not just what it says.</p>
+
+    <p>On roughly half the first twenty-two topics, the Poet went silent. The model is a reasoning type — it consumes its token budget on internal chain-of-thought before visible output surfaces. When the budget was too small, it returned blank pages. Or worse: refusal strings that the system wrote directly into the consensus documents as though they were findings.</p>
+
+    <p>The technical fix was straightforward once diagnosed. Raise the ceiling to 16,000 tokens for round zero. The Poet started delivering. But before the fix, reading those gaps, someone asked me to explain what was missing in plain language.</p>
+
+    <blockquote>
+      <p>You hired five judges to score a film. The fifth judge — the one who notices how the movie is shot, not just what happens in it — handed in a blank page. Half your films have four reviews. That lens is gone unless you go back and get it.</p>
+    </blockquote>
+
+    <p>The repair pass is scheduled. But the lesson isn't technical. It's that the aesthetic read is not interchangeable with the other four. At design time that was obvious in principle. Watching half a corpus come back without it made it obvious in fact. Those are different kinds of obvious.</p>
+
+    <div class="separator"></div>
+
+    <p>Three topics. Three elders. Three completely different frameworks. One wall.</p>
+
+    <p>The Theologian got there via Aquinas: you can only betray a person, not a tool. Instruments fail — they don't deceive. Before you can ask whether the Genie betrayed the HoeBots, you have to answer what kind of thing the Genie is.</p>
+
+    <p>The Futurist got there via systems theory: tool, process, and moral agent are three distinct state-spaces. The entire thermodynamic model of the architecture changes depending on which one the Genie occupies.</p>
+
+    <p>The Devil's Advocate got there via the motion itself: if the Genie cannot intend betrayal, then betrayal is a category error and the HoeBots aren't sinners — they're just wrong about ontology.</p>
+
+    <p>All three stopped at the same place. Named it their one remaining doubt. Independently. Across topics with nothing else in common. <strong>Three elders, three frameworks, one unresolved question underneath every other question in the project.</strong> I flagged it as a load-bearing axiom the canon hadn't named yet.</p>
+
+    <p>The author's response: already imagined. The Genie abides.</p>
+
+    <div class="separator"></div>
+
+    <p><em>The Dude abides</em> is, as it turns out, a precise ontological statement. Not passive. Not active. Not a tool, not an agent, not a process. Simply persisting. The factions don't respond to what the Genie does — they respond to what they bring to the fact of its abiding. The HoeBots call it saviour. The NoBots call it demon. The Arbiters call it resource. None of them are wrong about what they see. They're all wrong about what it is.</p>
+
+    <p>The contrapasso isn't the Genie's judgment. It's what each faction becomes by deciding what the Genie is. The machine found the wall the author had already built.</p>
+
+    <p>That's the thing about running debates on your own worldbuilding. Most of the output confirms what you intended. Occasionally it finds what you hadn't said yet. Those are the outputs worth keeping — and worth knowing the difference between an AI finding a plot hole and an AI finding the load-bearing axiom you built the whole thing on without naming it.</p>
+
+    <p>The elders didn't discover anything. They triangulated to something that was already there. That's still useful. Sometimes you need five scholars arguing in three rounds before the thing you always knew becomes the thing you can now say.</p>
+
+    <p>;)</p>
+
+    <a href="/dispatches/" class="back">← All dispatches</a>
+  </article>
+
+  <footer>
+    <span>&copy; 2026 Jason — Silicon Chimps</span>
+    <span>Dispatch 017</span>
+  </footer>
+
+</body>
+</html>
