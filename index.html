@@ -156,7 +156,7 @@
       <h1 class="wordmark"><span class="miro">Miro</span><span class="mesh">Mesh</span></h1>
       <p class="tagline">Human and machine, joined at the wrist.</p>
       <p class="soon"><b>coming soon</b> · built in the open</p>
-      <p class="creed">MiroMesh is a digital conscience with couples' arbitration protocols for when the machine overrules and no one can read the reasoning — <b>and MiroMesh is the only adult left in the room.</b></p>
+      <p class="creed">MiroMesh is a digital conscience with arbitration protocols for when agent says NO; you hit the roof — <b>and MiroMesh is the only adult in the room.</b></p>
       <figure class="qsocial">
         <p>There are over 8 billion humans — <em>this idiot is mine.</em></p>
         <cite>
@@ -317,13 +317,15 @@
     if (!c || !c.getContext) return;
     var ctx = c.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var pods = [], W = 0, H = 0, raf = null;
+    var pods = [], ripples = [], W = 0, H = 0, raf = null;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var ACCENT = 'oklch(58% 0.16 222)';
     var TAU = Math.PI * 2;
 
     function rand(a, b) { return a + Math.random() * (b - a); }
     function nowSec() { return (typeof performance !== 'undefined' ? performance.now() : 0) / 1000; }
+    // on impact: 50/50 — either double the spin or stop it dead (a stopped pod can
+    // be re-seeded by a future "double" so the swarm never freezes solid)
     function kick(w) { return Math.random() < 0.5 ? (w !== 0 ? w * 2 : (Math.random() < 0.5 ? 1 : -1) * 0.03) : 0; }
 
     function make() {
@@ -353,17 +355,18 @@
         d = pods[i];
         d.cx += d.vx; d.cy += d.vy;
         d.theta += d.omega;
-        d.omega *= 0.997;
+        d.omega *= 0.997;                                   // settle the spin between impacts
         if (d.omega > 0.09) d.omega = 0.09; else if (d.omega < -0.09) d.omega = -0.09;
-        d.vx += rand(-0.02, 0.02); d.vy += rand(-0.02, 0.02);
+        d.vx += rand(-0.02, 0.02); d.vy += rand(-0.02, 0.02); // gentle wander so the swarm keeps mingling
         var sp = Math.sqrt(d.vx * d.vx + d.vy * d.vy);
-        if (sp > 0.75) { d.vx = d.vx / sp * 0.75; d.vy = d.vy / sp * 0.75; }
-        else if (sp < 0.2) { var k = 0.2 / (sp || 0.0001); d.vx *= k; d.vy *= k; }
+        if (sp > 0.75) { d.vx = d.vx / sp * 0.75; d.vy = d.vy / sp * 0.75; } // cap top speed
+        else if (sp < 0.2) { var k = 0.2 / (sp || 0.0001); d.vx *= k; d.vy *= k; } // keep a minimum drift
         if (d.cx < d.r) { d.cx = d.r; d.vx = Math.abs(d.vx); }
         else if (d.cx > W - d.r) { d.cx = W - d.r; d.vx = -Math.abs(d.vx); }
         if (d.cy < d.r) { d.cy = d.r; d.vy = Math.abs(d.vy); }
         else if (d.cy > H - d.r) { d.cy = H - d.r; d.vy = -Math.abs(d.vy); }
       }
+      // elastic collisions between pods (equal mass) + a spin kick on impact
       for (i = 0; i < pods.length; i++) {
         for (j = i + 1; j < pods.length; j++) {
           var a = pods[i], b = pods[j];
@@ -391,11 +394,11 @@
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < pods.length; i++) {
         var d = pods[i];
-        var L = d.L0 + Math.sin(TAU * d.freq * now + d.phase0) * d.amp;
+        var L = d.L0 + Math.sin(TAU * d.freq * now + d.phase0) * d.amp; // tether strains/slackens ~4 Hz
         var hx = Math.cos(d.theta), hy = Math.sin(d.theta);
-        var x1 = d.cx + hx * L / 2, y1 = d.cy + hy * L / 2;
-        var x2 = d.cx - hx * L / 2, y2 = d.cy - hy * L / 2;
-        ctx.globalAlpha = 0.30;
+        var x1 = d.cx + hx * L / 2, y1 = d.cy + hy * L / 2;  // the human
+        var x2 = d.cx - hx * L / 2, y2 = d.cy - hy * L / 2;  // the machine
+        ctx.globalAlpha = 0.30;                              // persistent tether
         ctx.strokeStyle = ACCENT;
         ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
@@ -405,10 +408,41 @@
         ctx.globalAlpha = 0.40;
         ctx.beginPath(); ctx.arc(x2, y2, 2.0, 0, Math.PI * 2); ctx.fill();
       }
+      // ripples — a raindrop, or a dipole breaking the surface; rings spread + fade
+      ctx.strokeStyle = ACCENT;
+      for (var r = ripples.length - 1; r >= 0; r--) {
+        var rp = ripples[r];
+        rp.age += 1;
+        var t = rp.age / 96;                 // ~1.6s life at 60fps
+        if (t >= 1) { ripples.splice(r, 1); continue; }
+        var baseR = (1 - Math.pow(1 - t, 2)) * 84;   // ease-out spread
+        for (var ring = 0; ring < 3; ring++) {
+          var rr = baseR - ring * 13;
+          if (rr <= 0) continue;
+          ctx.globalAlpha = (1 - t) * 0.3 * (1 - ring * 0.3);
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.arc(rp.x, rp.y, rr, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
       ctx.globalAlpha = 1;
     }
 
-    function step(ts) { physics(); draw((ts || 0) / 1000); if (!reduce) raf = requestAnimationFrame(step); }
+    function step(ts) {
+      physics();
+      // occasionally drop a ripple — half from a dipole surfacing, half a raindrop
+      if (!reduce && Math.random() < 0.10) {
+        if (Math.random() < 0.5 && pods.length) {
+          var p = pods[(Math.random() * pods.length) | 0];
+          ripples.push({ x: p.cx, y: p.cy, age: 0 });
+        } else {
+          ripples.push({ x: Math.random() * W, y: Math.random() * H, age: 0 });
+        }
+      }
+      draw((ts || 0) / 1000);
+      if (!reduce) raf = requestAnimationFrame(step);
+    }
 
     resize();
     if (reduce) draw(nowSec()); else raf = requestAnimationFrame(step);
